@@ -1,0 +1,86 @@
+{% extends 'layout/layout.html' %} {% block content %}
+
+
+<form method="post" action="/single" id="photoFrm">
+  <p class="title">사진 등록</p>
+  <input type="file" name="filename">
+  <button type="submit">전송</button>
+</form>
+
+<form method="post" action="/modify" id="modifyFrm">
+  <h2 id="bannerText">회원정보 수정</h2>
+  <ul class="container">
+    <div id="imageBox">
+      <img id="previewImg" src="" alt="">
+      <input type="hidden" name="image" id="userImg">
+    </div>
+    <li>
+      <p class="title">아이디</p>
+      <span><input type="text" name="userid" id="userid"  value="{{userid}}" readonly></span>
+      <p class="alertMessage" style="opacity: 0; color: red">
+        영문과 숫자를 사용하여 6~16자 사이로 입력해주세요
+      </p>
+    </li>
+    <li>
+      <p class="title">닉네임</p>
+      <span
+        ><input type="text" name="username" id="username" value="{{username}}"
+      /></span>
+      <p class="alertMessage" style="opacity: 0; color: red">
+        특수문자를 제외하여 두 글자 이상으로 입력해주세요
+      </p>
+    </li>
+    <li>
+      <p class="title">비밀번호</p>
+      <span
+        ><input
+          type="password"
+          name="userpw"
+          id="userpw"
+          placeholder="비밀번호를 입력해주세요"
+          maxlength="16"
+      /></span>
+      <p class="alertMessage" style="opacity: 0; color: red">
+        영문, 숫자, 특수문자를 모두 혼합하여 8자 이상으로 써주세요
+      </p>
+    </li>
+    <li>
+        <p class="title">비밀번호 확인</p>
+        <span><input type="password" id="pwcheck" placeholder="비밀번호를 다시 한 번 입력해주세요" maxlength="16"></span>
+        <p class="alertMessage" style="opacity: 0; color: red">비밀번호가 일치하지 않습니다</p>
+    </li>
+    <!-- <li>
+      <p class="title">생년월일</p>
+      <span
+        ><input type="text" name="birth" id="birth" value="{{birth}}"
+      /></span>
+    </li> -->
+    <li>
+      <p class="title">전화번호</p>
+      <span
+        ><input
+          type="tel"
+          name="phoneNumber"
+          id="phoneNumber"
+          value="{{phoneNumber}}"
+      /></span>
+      <p class="alertMessage" style="opacity: 0; color: red">
+        "-"를 제외한 11자리의 숫자로 입력해주세요
+      </p>
+    </li>
+    <li>
+      <p class="title">이메일 주소</p>
+      <span
+        ><input type="email" name="email" id="email" value="{{email}}" required
+      /></span>
+      <p class="alertMessage" style="opacity: 0; color: red">
+        이메일 형식에 맞게 입력해주세요
+      </p>
+    </li>
+  </ul>
+  <button type="submit" class="button">수정완료</button>
+</form>
+
+<script type="module" src="/js/module/join.js"></script>
+
+{% endblock %}
